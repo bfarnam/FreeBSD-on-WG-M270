@@ -7,19 +7,21 @@ USB to Ethernet Adapter
 Cisco Style Console Cable (RJ45) to USB Serial Adapter
 FreeBSD RELEASE 15.0 memstick .img and flashed to USB
 
+# Prepare to install FreeBSD
 Connect the console cable and ethernet cable.  Load puTTy and connect (M270 should not be plugged in)
 Insert the USB installer into the other USB port.  Plug in the power.  The M270 should power on.
 When the BIOS screen appears press [DEL] to enter the bios setup.
 Using the password, go to security and remove the Admin and User password.
 Set the Boot type to UEFI and set the USB drive as primary.
 Exit the BIOS and reboot.
-Start the FreeBSD install.
+
+# FreeBSD Install
 
 # CHOOSE THE FOLLOWING OPTIONS:
 Choose Install
-Enter HostName (DEV)
+Enter your desired HostName
 Select Distribution Sets (Packages, while nice, install everything and you can not install a custom kernel.  For a lean install, use Distribution Sets!)
-Select the following distribution sets
+Select the following distribution sets at a minimum
     lib-32
     (No need to select SRC as we will pull that later)
 Config Network (use the USB adapter - usually something like ue0)
@@ -32,11 +34,12 @@ Select FreeBSD Mirror and the install starts
 Enter a root password
 Select Proper Time Zone and skip set date and time unless wrong
 
- System Configuration
-Select sshd, ntpd, ntpd_sync_on_start,moused,dumpdev
-When prompted - select clear TMP at reboot and secure console (optional).  NOTE: APPLY ADDITIONAL HARDENING IF GOING INTO A PRODUCTION ENVIRONMENT
+# System Configuration
+Select sshd, ntpd, ntpd_sync_on_start, moused, dumpdev
+When prompted - select clear TMP at reboot and secure console (optional).  
+NOTE: APPLY ADDITIONAL HARDENING IF GOING INTO A PRODUCTION ENVIRONMENT
 
-At end before reboot, enter shell and enter the following (optional if you want to ssh into the unit):
+At the end before reboot, enter shell and enter the following (optional if you want to ssh into the unit):
 
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config

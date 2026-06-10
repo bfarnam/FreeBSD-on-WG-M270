@@ -1,0 +1,176 @@
+#
+# M270 -- Kernel configuration file for FreeBSD/amd64 on the M270 Platform
+#
+# For more information on this file, please read the config(5) manual page,
+# and/or the handbook section on Kernel Configuration Files:
+#
+#    https://docs.freebsd.org/en/books/handbook/kernelconfig/#kernelconfig-config
+#
+# The handbook is also available locally in /usr/share/doc/handbook
+# if you've installed the doc distribution, otherwise always see the
+# FreeBSD World Wide Web server (https://www.FreeBSD.org/) for the
+# latest information.
+#
+# An exhaustive list of options and more detailed explanations of the
+# nodevice lines is also present in the ../../conf/NOTES and NOTES files.
+# If you are in doubt as to the purpose or necessity of a line, check first
+# in NOTES.
+#
+
+include         GENERIC
+
+ident           M270
+
+# M270 Hardware
+device          etherswitch     # Ethernet switch framework
+device          miiproxy        # Media Independent Interface Proxy
+device          e6000sw         # Marvell 88E6xxx ethernet switch driver
+
+device		ioat		# Intel I/OAT DMA engine
+
+# Floppy drives
+nodevice		fdc
+
+# ATA controllers
+nodevice		mvs			# Marvell 88SX50XX/88SX60XX/88SX70XX/SoC SATA
+nodevice		siis			# SiliconImage SiI3124/SiI3132/SiI3531 SATA
+
+# SCSI Controllers
+nodevice		ahc			# AHA2940 and onboard AIC7xxx devices
+nodevice		ahd			# AHA39320/29320 and onboard AIC79xx devices
+nodevice		hptiop			# Highpoint RocketRaid 3xxx series
+nodevice		isp			# Qlogic family
+nodevice		ispfw			# Firmware for QLogic HBAs- normally a module
+nodevice		mpt			# LSI-Logic MPT-Fusion
+nodevice		mps			# LSI-Logic MPT-Fusion 2
+nodevice		mpr			# LSI-Logic MPT-Fusion 3
+nodevice		mpi3mr			# LSI-Logic MPT-Fusion 4
+nodevice		sym			# NCR/Symbios Logic
+nodevice		isci			# Intel C600 SAS controller
+nodevice		ocs_fc			# Emulex FC adapters
+nodevice		pvscsi			# VMware PVSCSI
+
+# ATA/SCSI peripherals
+nodevice		ch			# SCSI media changers
+nodevice		sa			# Sequential Access (tape etc)
+nodevice		cd			# CD
+
+# RAID controllers interfaced to the SCSI subsystem
+nodevice		arcmsr			# Areca SATA II RAID
+nodevice		ciss			# Compaq Smart RAID 5*
+nodevice		ips			# IBM (Adaptec) ServeRAID
+nodevice		smartpqi		# Microsemi smartpqi driver
+nodevice		tws			# LSI 3ware 9750 SATA+SAS 6Gb/s RAID controller
+
+# RAID controllers
+nodevice		aac			# Adaptec FSA RAID
+nodevice		aacp			# SCSI passthrough for aac (requires CAM)
+nodevice		aacraid			# Adaptec by PMC RAID
+nodevice		ida			# Compaq Smart RAID
+nodevice		mfi			# LSI MegaRAID SAS
+nodevice		mlx			# Mylex DAC960 family
+nodevice		mrsas			# LSI/Avago MegaRAID SAS/SATA, 6Gb/s and 12Gb/s
+nodevice		pst			# Promise Supertrak SX6000
+
+# NVM Express (NVMe) support
+nodevice		nvme			# base NVMe driver
+nodevice		nvd			# expose NVMe namespaces as disks, depends on nvme
+
+# CardBus bridge support
+nodevice		cbb			# CardBus (yenta) bridge
+nodevice		cardbus			# CardBus (32-bit) bus
+
+# Parallel port
+nodevice		ppc
+nodevice		ppbus			# Parallel port bus (required)
+nodevice		lpt			# Printer
+nodevice		ppi			# Parallel port interface nodevice
+nodevice		vpo			# Requires scbus and da
+
+# PCI/PCI-X/PCIe Ethernet NICs that use iflib infrastructure
+nodevice		igc			# Intel I225 2.5G Ethernet
+nodevice		ice			# Intel 800 Series Physical Function
+nodevice		vmx			# VMware VMXNET3 Ethernet
+nodevice		axp			# AMD EPYC integrated NIC (requires miibus)
+
+# PCI Ethernet NICs.
+nodevice		aq			# Aquantia / Marvell AQC1xx
+nodevice		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
+nodevice		rge			# Realtek 8125/8126/8127
+nodevice		ti			# Alteon Networks Tigon I/II gigabit Ethernet
+
+# Nvidia/Mellanox Connect-X 4 and later, Ethernet only
+#  o requires COMPAT_LINUXKPI and xz(4)
+#  o mlx5ib requires ibcore infra and is not included by default
+nodevice		mlx5			# Base driver
+nodevice		mlxfw			# Firmware update
+nodevice		mlx5en			# Ethernet driver
+
+# PCI Ethernet NICs that use the common MII bus controller code.
+nodevice		ae			# Attansic/Atheros L2 FastEthernet
+nodevice		age			# Attansic/Atheros L1 Gigabit Ethernet
+nodevice		alc			# Atheros AR8131/AR8132 Ethernet
+nodevice		ale			# Atheros AR8121/AR8113/AR8114 Ethernet
+nodevice		bce			# Broadcom BCM5706/BCM5708 Gigabit Ethernet
+nodevice		bfe			# Broadcom BCM440x 10/100 Ethernet
+nodevice		bge			# Broadcom BCM570xx Gigabit Ethernet
+nodevice		cas			# Sun Cassini/Cassini+ and NS DP83065 Saturn
+nodevice		dc			# DEC/Intel 21143 and various workalikes
+nodevice		et			# Agere ET1310 10/100/Gigabit Ethernet
+nodevice		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
+nodevice		gem			# Sun GEM/Sun ERI/Apple GMAC
+nodevice		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
+nodevice		lge			# Level 1 LXT1001 gigabit Ethernet
+nodevice		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
+nodevice		nfe			# nVidia nForce MCP on-board Ethernet
+nodevice		nge			# NatSemi DP83820 gigabit Ethernet
+nodevice		sge			# Silicon Integrated Systems SiS190/191
+nodevice		sis			# Silicon Integrated Systems SiS 900/SiS 7016
+nodevice		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
+nodevice		ste			# Sundance ST201 (D-Link DFE-550TX)
+nodevice		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
+nodevice		vge			# VIA VT612x gigabit Ethernet
+nodevice		vr			# VIA Rhine, Rhine II
+nodevice		xl			# 3Com 3c90x (``Boomerang'', ``Cyclone'')
+
+# Wireless NIC cards
+nodevice		wlan			# 802.11 support
+nooptions 	IEEE80211_DEBUG		# enable debug msgs
+nooptions 	IEEE80211_SUPPORT_MESH	# enable 802.11s draft support
+nodevice		wlan_wep		# 802.11 WEP support
+nodevice		wlan_tkip		# 802.11 TKIP support
+nodevice		wlan_ccmp		# 802.11 CCMP support
+nodevice		wlan_gcmp		# 802.11 GCMP support
+nodevice		wlan_amrr		# AMRR transmit rate control algorithm
+nodevice		ath			# Atheros CardBus/PCI NICs
+nodevice		ath_hal			# Atheros CardBus/PCI chip support
+nooptions 	AH_AR5416_INTERRUPT_MITIGATION # AR5416 interrupt mitigation
+nodevice		ath_rate_sample		# SampleRate tx rate control for ath
+nodevice		bwi			# Broadcom BCM430x/BCM431x wireless NICs.
+nodevice		bwn			# Broadcom BCM43xx wireless NICs.
+nodevice		ipw			# Intel 2100 wireless NICs.
+nodevice		iwi			# Intel 2200BG/2225BG/2915ABG wireless NICs.
+nodevice		iwn			# Intel 4965/1000/5000/6000 wireless NICs.
+nodevice		malo			# Marvell Libertas wireless NICs.
+nodevice		mwl			# Marvell 88W8363 802.11n wireless NICs.
+nodevice		ral			# Ralink Technology RT2500 wireless NICs.
+nodevice		wpi			# Intel 3945ABG wireless NICs.
+
+# USB support
+nodevice		thunderbolt		# Thunderbolt PCI->USB interface (USB 4.0)
+
+# Sound support
+nodevice		sound			# Generic sound driver (required)
+nodevice		snd_cmi			# CMedia CMI8338/CMI8738
+nodevice		snd_csa			# Crystal Semiconductor CS461x/428x
+nodevice		snd_emu10kx		# Creative SoundBlaster Live! and Audigy
+nodevice		snd_es137x		# Ensoniq AudioPCI ES137x
+nodevice		snd_hda			# Intel High Definition Audio
+nodevice		snd_ich			# Intel, NVidia and other ICH AC'97 Audio
+nodevice		snd_via8233		# VIA VT8233x Audio
+
+# MMC/SD
+nodevice		mmc			# MMC/SD bus
+nodevice		mmcsd			# MMC/SD memory card
+nodevice		sdhci			# Generic PCI SD Host Controller
+
