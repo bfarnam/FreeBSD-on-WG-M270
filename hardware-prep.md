@@ -12,3 +12,5 @@ You should set your terminal to 115200,N,8,1.
 
 ## Optional
 I changed from LEGACY to UEFI for FreeBSD.  If you change to UEFI please note that UEFI and Legacy each have thier own boot orders.  I also ensured that Serial Port Rediection (Found under Advanced) was enabled for vt100.  You can make any other changes that you wish for your specific application.
+
+**When done chose Save & Exit and Save Changes and Reset.**

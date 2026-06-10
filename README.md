@@ -33,10 +33,9 @@ Please read the prerequisites.md file.
 ## Hardware Preperation
 Please read the hardware-prep.md file.
 
-# Prepare to install FreeBSD
+## FreeBSD Install
+**OPTIONAL:** Please read the FreeBSD-Install.md file for the specific method of installing FreeBSD on the internal mSATA Drive.
 
-
-# FreeBSD Install
 
 # CHOOSE THE FOLLOWING OPTIONS:
 Choose Install
