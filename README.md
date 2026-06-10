@@ -27,19 +27,14 @@ https://westwardsales.com/lanner-l-2510a-whitebox-rackmount-network-appliance?sr
 
 Step by step on how to configure FreeBSD on the WG M270 Platform
 
-# Prerequisites:
-WatchGuard M270
-USB to Ethernet Adapter
-Cisco Style Console Cable (RJ45) to USB Serial Adapter
-FreeBSD RELEASE 15.0 memstick .img and flashed to USB
+## Prerequisites:
+Please read the prerequisites.md file.
+
+## Hardware Preperation
+Please read the hardware-prep.md file.
 
 # Prepare to install FreeBSD
-Connect the console cable and ethernet cable.  Load puTTy and connect (M270 should not be plugged in)
-Insert the USB installer into the other USB port.  Plug in the power.  The M270 should power on.
-When the BIOS screen appears press [DEL] to enter the bios setup.
-Using the password, go to security and remove the Admin and User password.
-Set the Boot type to UEFI and set the USB drive as primary.
-Exit the BIOS and reboot.
+
 
 # FreeBSD Install
 
