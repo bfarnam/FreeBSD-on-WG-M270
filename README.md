@@ -102,7 +102,7 @@ echo "device e6000sw" >> /usr/src/sys/amd64/conf/M270
 NOTE: The kernel already includes mdio, ix, miibus
 
 OPTIONAL:  You can add any nodevice entries to supress devices in the GENERIC kernel such as nodevice speaker, etc.
-I have included a sample M270 kernel file.
+There is a sample M270 kernel file in this repo.
 
 # Create the hints file
 cp /usr/src/sys/amd64/conf/GENERIC.hints /usr/src/sys/amd64/conf/M270.hints
