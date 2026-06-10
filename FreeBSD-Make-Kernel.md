@@ -64,9 +64,9 @@ CHANGE FROM:
 dev/etherswitch/e6000sw/e6000sw.c optional e6000sw fdt
 
 CHANGE TO:
-'# Removed Flat Device Tree dependency for M270 Platform'
-'# dev/etherswitch/e6000sw/e6000sw.c     optional e6000sw fdt'
-'dev/etherswitch/e6000sw/e6000sw.c       optional e6000sw'
+# Removed Flat Device Tree dependency for M270 Platform
+# dev/etherswitch/e6000sw/e6000sw.c     optional e6000sw fdt
+dev/etherswitch/e6000sw/e6000sw.c       optional e6000sw
 ```
 
 ### Create the new Kernel
