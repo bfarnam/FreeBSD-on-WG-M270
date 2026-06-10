@@ -1,7 +1,7 @@
 # FreeBSD-on-WG-M270
 Step by step on how to configure FreeBSD on the WG M270 Platform
 
-Prerequisites:
+# Prerequisites:
 WatchGuard M270
 USB to Ethernet Adapter
 Cisco Style Console Cable (RJ45) to USB Serial Adapter
