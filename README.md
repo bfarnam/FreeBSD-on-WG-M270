@@ -54,12 +54,16 @@ After reboot, login as root.
 # On a fresh install, first some house cleaning
 pkg update && pkg upgrade -y
 freebsd-update fetch && freebsd-update install
+
+NOTE: If the freebsd-update fetch fails, you may need to update the CA Root Certs: pkg install -y ca_root_nss
+
 reboot
 
 # Log back in and verify the version - you will need this for later
 freebsd-version -u && freebsd-version -kr
 
 # Now lets build the custom Kernel
+# If not already done, we will update the CA Root Certs otherwise git fails.
 pkg install -y ca_root_nss git
 rm -rf /usr/src
 git clone https://git.freebsd.org/src.git /usr/src
