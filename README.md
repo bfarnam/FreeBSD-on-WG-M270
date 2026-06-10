@@ -76,6 +76,7 @@ cd /usr/src
 patch -p1 < /root/D50128.diff
 
 # IMPORTANT: Fix any errors by hand!
+# Compare /usr/src/sys/modules/ix/Makefile with /usr/src/sys/modules/ix/Makefile.rej
 # Normally it is only one or two entries in sys/modules/ix/Makefile
 
 # Fix the build bug - Remove 'fdt' dependency!  
@@ -129,4 +130,5 @@ make installkernel KERNCONF=M270
 reboot
 
 # If you pre-copied all the support files, the front ports should come up with port 0 on DHCP!
+
 
