@@ -39,7 +39,9 @@ NOTE: APPLY ADDITIONAL HARDENING IF GOING INTO A PRODUCTION ENVIRONMENT
 At the end before reboot, enter shell and enter the following (optional if you want to ssh into the unit):
 
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+
 exit
 
 YOU ARE FINISHED WITH PHASE 1 AND ARE READY TO CONFIG THE KERNEL!
