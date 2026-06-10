@@ -18,10 +18,12 @@ https://westwardsales.com/lanner-l-2510a-whitebox-rackmount-network-appliance?sr
 - 1x RJ45 Console Port which supports BIOS vtty Serial Port Redirection (No need for Unix Redirection)
 - 2x USB 3.0 ports
 - 8x 1000Base-T ports witch connect to an on board Marvell 88E6190 / 88E6190X Switch.  None of the ports connect directly to the CPU.
--- 11-Port Ethernet Switch
--- 8 integrated Gigabit Ethernet Transcievers
--- 2 SerDes Interfaces (Connected to CPU X553 Port 0 and Port 1)
--- 1 Digitial Interface (Used for MII)
+
+### Marvell LinkStreet 88E6190/88E6190x Technical Information
+- 11-Port Ethernet Switch
+- 8 integrated Gigabit Ethernet Transcievers
+- 2 SerDes Interfaces (Connected to CPU X553 Port 0 and Port 1)
+- 1 Digitial Interface (Used for MII)
 
 Step by step on how to configure FreeBSD on the WG M270 Platform
 
