@@ -68,7 +68,7 @@ patch -p1 < /root/D50128.diff
 
 ### IMPORTANT: Fix any errors by hand!
 ### Compare /usr/src/sys/modules/ix/Makefile with /usr/src/sys/modules/ix/Makefile.rej
-### Normally it is only one or two entries in sys/modules/ix/Makefile
+### Normally it is only one or two entries in /usr/src/sys/modules/ix/Makefile
 
 ### Fix the build bug - Remove 'fdt' dependency!  
 **Note:** This is actually not required.  On x86 platforms, FDT is isgnored.  This was tested with v16.0.
