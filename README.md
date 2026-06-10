@@ -38,35 +38,7 @@ Please read the hardware-prep.md file.
 
 
 # CHOOSE THE FOLLOWING OPTIONS:
-Choose Install
-Enter your desired HostName
-Select Distribution Sets (Packages, while nice, install everything and you can not install a custom kernel.  For a lean install, use Distribution Sets!)
-Select the following distribution sets at a minimum
-    lib-32
-    (No need to select SRC as we will pull that later)
-Config Network (use the USB adapter - usually something like ue0)
-Choose Manual Disk Setup
-    Ensure the hard disk (ada0) is selected
-    Choose AUTO - should prompt you and confirm ada0 - choose entire disk - confirm
-    Select GPT - GUID Partition Table
-    Select Finish and Commit
-Select FreeBSD Mirror and the install starts
-Enter a root password
-Select Proper Time Zone and skip set date and time unless wrong
 
-# System Configuration
-Select sshd, ntpd, ntpd_sync_on_start, moused, dumpdev
-When prompted - select clear TMP at reboot and secure console (optional).  
-NOTE: APPLY ADDITIONAL HARDENING IF GOING INTO A PRODUCTION ENVIRONMENT
-
-At the end before reboot, enter shell and enter the following (optional if you want to ssh into the unit):
-
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-exit
-
-YOU ARE FINISHED WITH PHASE 1 AND ARE READY TO CONFIG THE KERNEL!
-Reboot - remove the flash drive as soon as uhub0 is disconnected or at the BIOS screen!
 
 # NOW LETS CONFIGURE THE KERNEL FOR THE PLATFORM SPECIFIC ITEMS!
 After reboot, login as root.
