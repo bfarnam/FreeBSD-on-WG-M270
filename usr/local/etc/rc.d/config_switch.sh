@@ -6,6 +6,8 @@
 # /usr/local/etc/rc.d/configure_switch.sh
 # chmod +x /usr/local/etc/rc.d/configure_switch.sh
 
+# For v16.0 you will need to mkdir /usr/local/etc/rc.d
+
 # IMPORTANT - The port configuration MUST MATCH what is in rc.conf!
 
 # PROVIDE: config_switch

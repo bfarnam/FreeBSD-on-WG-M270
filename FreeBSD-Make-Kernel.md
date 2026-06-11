@@ -29,7 +29,19 @@ reboot
 freebsd-version -u && freebsd-version -kr
 ```
 
+# FreeBSD Version 15.x ONLY
+**If you have FreeBSD version 16.0, you can stop here!**
+
+Please add the appropriate files:
+- /boot/loader.conf
+- /etc/rc.conf
+- /usr/local/etc/rc.d/config_switch.sh
+
+**NOTE:** Make sure to uncomment the version 16 additions which are commented out in the files!
+
 ## Now lets build the custom Kernel
+**This only applies to versions 15.x!**
+
 ### If not already done, we will update the CA Root Certs otherwise git fails.
 **Supported in Versions: 15.0, 15.1, 16.0 beta3**
 ```
@@ -71,7 +83,7 @@ patch -p1 < /root/D50128.diff
 ### Normally it is only one or two entries in /usr/src/sys/modules/ix/Makefile
 
 ### Fix the build bug - Remove 'fdt' dependency!  
-**Note:** This is actually not required.  On x86 platforms, FDT is isgnored.  This was tested with v16.0.
+**Note:** This is actually not required.  On x86 platforms, FDT is isgnored.
 ```
 edit /usr/src/sys/conf/files
 
