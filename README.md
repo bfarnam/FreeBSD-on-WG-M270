@@ -34,10 +34,12 @@ Please read the prerequisites.md file.
 Please read the hardware-prep.md file.
 
 ## FreeBSD Install
-**OPTIONAL:** Please read the FreeBSD-Install.md file for the specific method of installing FreeBSD on the internal mSATA Drive.
+**IMPORTANT:** Please read the FreeBSD-Install.md file for the specific method of installing FreeBSD on the internal mSATA Drive.
 
 ## Kernel Configuration
-**OPTIONAL:** Please read the FreeBSD-Make-Kernel.md file for the specific steps required to re-compile the FreeBSD Kernel to utilize the onboard ethernet switch.
+If you have version 16 then you do not need to compile the kernel.  There is however a bug in the driver which prohibits you from loading it up at boot.  You must instead use a kld_list command in rc.conf.  Please see both my /etc/rc.conf and FreeBSD-Make-Kernel.md files for more info.
+
+**IMPORTANT:** Please read the FreeBSD-Make-Kernel.md file for the specific steps required to re-compile the FreeBSD Kernel to utilize the onboard ethernet switch.
 
 
 
