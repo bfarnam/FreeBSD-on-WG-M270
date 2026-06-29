@@ -10,6 +10,13 @@ According to the wiki, kernel re-compile should not be required for the 16.0 rel
 ## NOW LETS CONFIGURE THE KERNEL FOR THE PLATFORM SPECIFIC ITEMS!
 After reboot, login as root.
 
+#### PowerShell (Windows) Key Issues
+If this is a rebuild and the IP is the same, you will have to clear the previous key:
+
+```
+ssh-keygen -R ipAddress
+```
+
 ### On a fresh install, first some house cleaning
 **Supported in Versions: 15.0, 15.1, 16.0 beta3**
 ```

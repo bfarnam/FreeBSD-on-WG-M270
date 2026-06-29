@@ -39,8 +39,13 @@ NOTE: APPLY ADDITIONAL HARDENING IF GOING INTO A PRODUCTION ENVIRONMENT
 ```
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-exit
+```
+
+### As of the latest June 22 2026 version 16.0 build SSHD defaults to KbdInteractiveAuthentication after PublicKey and
+### most times powershell (windows) will fail.  So you need to add the folowing line:
+```
+echo "KbdInteractiveAuthentication no" >> /etc/ssh/sshd_config
 ```
 
 ### YOU ARE FINISHED WITH PHASE 1 AND ARE READY TO CONFIG THE KERNEL!
-Reboot - remove the flash drive as soon as uhub0 is disconnected or at the BIOS screen!
+Exit and Reboot - remove the flash drive as soon as uhub0 is disconnected or at the BIOS screen!
