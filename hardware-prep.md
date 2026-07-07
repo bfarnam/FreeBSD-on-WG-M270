@@ -6,7 +6,7 @@ Before you can install FreeBSD or any other software such as OPNsense, PFsense, 
 2. Connect the Serial Console Cable between the M270 and your PC.
 You should set your terminal to 115200,N,8,1.
 3. Powerup the M270 and press <DELETE> or <TAB> when prompted to enter the BIOS.
-4. Enter the BIOS password (WatchGaurd!).
+4. Enter the BIOS password (WatchGuard!).
 5. Navigate to Security and Select the Administrator Password and change the password.  When prompted for the new password, just hit enter and confirm to remove the Administrator Password.  Repeat this for the User Password.  The User Password is the same as the Administrator Password.
 6. Navigate to Boot and change ensure that the USB Device is the first boot device.
 
