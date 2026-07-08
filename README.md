@@ -1,4 +1,5 @@
 # FreeBSD-on-WG-M270
+**Tested with the latest 16.0 Current branch dated 20260706**
 
 ## Platform Information
 The Lanner NCB-WG2511 is a proprietary, customized OEM motherboard manufactured by Lanner Electronics. It serves as the underlying hardware platform for the WatchGuard Firebox M270.  It is seen with various revisions and versions.  The information contained here was tested and verified using the NCB-WG2511A ver 0.6 motherboard.  
@@ -40,6 +41,10 @@ Please read the hardware-prep.md file.
 If you have version 16 then you do not need to compile the kernel.  There is however a bug in the driver which prohibits you from loading it up at boot.  You must instead use a kld_list command in rc.conf.  Please see both my /etc/rc.conf and FreeBSD-Make-Kernel.md files for more info.
 
 **IMPORTANT:** Please read the FreeBSD-Make-Kernel.md file for the specific steps required to re-compile the FreeBSD Kernel to utilize the onboard ethernet switch.
+
+## Configure M270 Switch
+Please read the FreeBSD-Configure-M270-Switch.md file for specific instructions.
+**NOTE:** Because of the way the Marvel Switch was implemented in this hardware and the way the switch ports are activated, every port that comes up has the exact same MAC address as every other M270.  I have tested this on three seperate devices and they all have the same MAC: 34:12:78:56:01:03.  Please follow the workaround in the FreeBSD-Configure-M270-Switch.md file.
 
 
 
