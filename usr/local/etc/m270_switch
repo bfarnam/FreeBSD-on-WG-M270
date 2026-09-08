@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# Script to setup the switch in the M270
+#
+
+# /usr/local/etc/rc.d/m270_switch
+# chmod +x /usr/local/etc/rc.d/m270_switch
+
+# For v16.0 you will need to mkdir /usr/local/etc/rc.d
+
+# IMPORTANT - The port configuration MUST MATCH what is in rc.conf!
+
+# PROVIDE: m270_switch
+# REQUIRE: NETWORKING
+# BEFORE: netif
+
+. /etc/rc.subr
+
+name="m270_switch"
+rcvar="m270_switch_enable"
+start_cmd="m270_switch_start"
+
+m270_switch_start()
+{
+    echo "Configuring Watchguard M270 Switch Matrix..."
+    logger Configuring Watchguard M270 Switch Matrix...
+
+    # Set global mode
+    etherswitchcfg config vlan_mode DOT1Q
+    
+    # Map physical ports 1-8 to individual VLAN groups tagged to CPU port 9 or 10
+    # This MUST match rc.conf configuration
+
+    # This is the 4x4 configuration where 4 ports are bound to ix0 and 4 ports are bound to ix1
+    # ix0
+    etherswitchcfg vlangroup1 vlan 901 members 1,9t port1 pvid 901
+    etherswitchcfg vlangroup2 vlan 902 members 2,9t port2 pvid 902
+    etherswitchcfg vlangroup3 vlan 903 members 3,9t port3 pvid 903
+    etherswitchcfg vlangroup4 vlan 904 members 4,9t port4 pvid 904
+    # ix1
+    etherswitchcfg vlangroup5 vlan 905 members 5,10t port5 pvid 905
+    etherswitchcfg vlangroup6 vlan 906 members 6,10t port6 pvid 906
+    etherswitchcfg vlangroup7 vlan 907 members 7,10t port7 pvid 907
+    etherswitchcfg vlangroup8 vlan 908 members 8,10t port8 pvid 908
+
+    echo "Watchguard M270 Switch Matrix Configuration Complete..."
+    logger Watchguard M270 Switch Matrix Configuration Complete...
+}
+
+run_rc_command "$1"
