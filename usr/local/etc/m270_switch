@@ -11,8 +11,8 @@
 # IMPORTANT - The port configuration MUST MATCH what is in rc.conf!
 
 # PROVIDE: m270_switch
-# REQUIRE: NETWORKING
-# BEFORE: netif
+# REQUIRE: kld FILESYSTEMS
+# BEFORE: netif NETWORKING
 
 . /etc/rc.subr
 
@@ -22,13 +22,13 @@ start_cmd="m270_switch_start"
 
 m270_switch_start()
 {
-    echo "Configuring Watchguard M270 Switch Matrix..."
-    logger Configuring Watchguard M270 Switch Matrix...
+    echo "Configuring M270 Switch..."
+    logger Configuring M270 Switch...
 
     # Set global mode
     etherswitchcfg config vlan_mode DOT1Q
     
-    # Map physical ports 1-8 to individual VLAN groups tagged to CPU port 9 or 10
+    # Map internal switch physical ports 1-8 to individual VLAN groups tagged to CPU facing port 9 or 10
     # This MUST match rc.conf configuration
 
     # This is the 4x4 configuration where 4 ports are bound to ix0 and 4 ports are bound to ix1
@@ -43,8 +43,8 @@ m270_switch_start()
     etherswitchcfg vlangroup7 vlan 907 members 7,10t port7 pvid 907
     etherswitchcfg vlangroup8 vlan 908 members 8,10t port8 pvid 908
 
-    echo "Watchguard M270 Switch Matrix Configuration Complete..."
-    logger Watchguard M270 Switch Matrix Configuration Complete...
+    echo "M270 Switch Configuration Complete"
+    logger M270 Switch Configuration Complete
 }
 
 run_rc_command "$1"
