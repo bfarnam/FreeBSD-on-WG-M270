@@ -18,9 +18,9 @@ To address this issue, you have to change the MAC address using
 ```
 ether random
 ```
-or by assigning a specific MAC using
+or by assigning a specific MAC using any valid MAC (QEMU/KVM/libvirt use the standard Red Hat OUI prefix 52:54:00)
 ```
-link 00:a0:c9:00:00:03
+link 52:54:00:xx:yy:zz
 ```
 
 After you do this, you must then put the physical ports attached to the CPU in promiscuous mode otherwise the onboard hardware filter blocks all traffic.

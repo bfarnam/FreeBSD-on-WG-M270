@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# /etc/rc.local to switch the M270 platform "guard" LED from red to green after boot
+#
+
+# The Application should have first been downloaded to /usr/local/bin and chmod +x
+# fetch https://github.com/stephenw10/WGXepc/raw/master/WGXepc64
+# 
+# For some firewalls with SSL DPI, you may have to set no verify: export SSL_NO_VERIFY_PEER=1
+
+/usr/local/bin/WGXepc64 -l green
