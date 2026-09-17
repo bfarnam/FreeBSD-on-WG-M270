@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# /etc/start_if.ix0.904
+#
+# Post Init Script to finish setting up the interface using ifconfig
+#
+# Don't forget to make this exscutable!
+# chmod +x /etc/start_if.ix0.904
+#
+
+# Setup the MTU first
+ifconfig $1 mtu 1500
+
+# Now set DHCP and bring up the interface
+ifconfig $1 dhcp up

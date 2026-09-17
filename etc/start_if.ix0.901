@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# /etc/start_if.ix0.901
+#
+# Post Init Script to finish setting up the interface using ifconfig
+# Don't forget to make this exscutable!
+# chmod +x /etc/start_if.ix0.901
+#
+
+# Setup the MTU first
+ifconfig $1 mtu 9000
+
+# Now set the IP and and bring up the interface
+ifconfig $1 inet 10.91.234.125 netmask 255.255.255.240 up

@@ -25,9 +25,20 @@ link 52:54:00:xx:yy:zz
 
 After you do this, you must then put the physical ports attached to the CPU in promiscuous mode otherwise the onboard hardware filter blocks all traffic.
 
+Also, since all of the child virtual ports inherit the parents MTU, you must set the MTU to 9000 here as well if you are going to use jumbo frames later on.
+
+**NOTE:** Becuase of a limitation on how etherswitch works in FreeBSD, you can only perform a single ifconfig function in rc.conf.  The workaround is to create interface startup scripts in /etc such as /etc/start_if.ix0.901.  You can then execute postinit ifconfig statements on the interface, such as modifying MTU or setting the IP address.
+
 You can add the sample rc.conf by edditing your rc.conf file:
 ```
 edit /etc/rc.conf
+```
+
+### etc/start_if.ixn.90n
+Add the start interface scripts to the /etc directory.  Besure that the naming follows what you put in rc.conf and m270_switch.  After you have added them (you can copy the samples I have) and made any changes, be sure to make them executable:
+
+```
+chmod +x /etc/start_if.ix*
 ```
 
 ### usr/local/etc/rc.d/m270_switch
@@ -35,10 +46,6 @@ edit /etc/rc.conf
 
 ```
 mkdir /usr/local/etc && mkdir /usr/local/etc/rc.d
-```
-**NOTE:** On FreeBSD 16 Current (as of 20260831) you will need to create the directory first
-```
-
 ```
 
 Add the contents of any of the sample switch files in usr/local/etc/rc.d to a new m270_switch file.
