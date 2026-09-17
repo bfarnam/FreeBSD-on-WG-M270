@@ -11,4 +11,4 @@
 ifconfig $1 mtu 9000
 
 # Now set the IP and and bring up the interface
-ifconfig $1 inet 10.91.234.125 netmask 255.255.255.240 up
+ifconfig $1 inet 17.91.234.125 netmask 255.255.255.240 up
