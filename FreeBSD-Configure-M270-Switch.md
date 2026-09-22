@@ -27,7 +27,7 @@ After you do this, you must then put the physical ports attached to the CPU in p
 
 Also, since all of the child virtual ports inherit the parents MTU, you must set the MTU to 9000 here as well if you are going to use jumbo frames later on.
 
-**NOTE:** Becuase of a limitation on how etherswitch works in FreeBSD, you can only perform a single ifconfig function in rc.conf.  The workaround is to create interface startup scripts in /etc such as /etc/start_if.ix0.901.  You can then execute postinit ifconfig statements on the interface, such as modifying MTU or setting the IP address.
+**NOTE:** Becuase of a limitation on how etherswitch works in FreeBSD, you can only perform a single ifconfig function in rc.conf.  The workaround is to create interface startup scripts in /etc such as /etc/start_if.ix0.901.  You can then execute postinit ifconfig statements on the interface, such as modifying MTU or setting the IP address.  IF you are going to use DHCP you can put this in the rc.conf file with the link or ether statement.
 
 You can add the sample rc.conf by edditing your rc.conf file:
 ```
