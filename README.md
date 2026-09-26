@@ -28,17 +28,17 @@ https://westwardsales.com/lanner-l-2510a-whitebox-rackmount-network-appliance?sr
 
 ### Port Configuration under EtherSwitch
 When using etherswitch, it is important to understand how the ports are named as compared to the front panel labeling:
-Switch Port 0 - Internal MDIO1 port
-Switch Port 1 - Front Panel Port 0
-Switch Port 2 - Front Panel Port 1
-Switch Port 3 - Front Panel Port 2
-Switch Port 4 - Front Panel Port 3
-Switch Port 5 - Front Panel Port 4
-Switch Port 6 - Front Panel Port 5
-Switch Port 7 - Front Panel Port 6
-Switch Port 8 - Front Panel Port 7
-Switch Port 9 - First Internal Switch Port Connected to CPU - Generally ix0
-Switch Port 10 - Second Internal Switch Port Connected to CPU - Generally ix1
+- Switch Port 0 - Internal MDIO1 port
+- Switch Port 1 - Front Panel Port 0
+- Switch Port 2 - Front Panel Port 1
+- Switch Port 3 - Front Panel Port 2
+- Switch Port 4 - Front Panel Port 3
+- Switch Port 5 - Front Panel Port 4
+- Switch Port 6 - Front Panel Port 5
+- Switch Port 7 - Front Panel Port 6
+- Switch Port 8 - Front Panel Port 7
+- Switch Port 9 - First Internal Switch Port Connected to CPU - Generally ix0
+- Switch Port 10 - Second Internal Switch Port Connected to CPU - Generally ix1
 
 ## Step by step on how to configure FreeBSD on the WG M270 Platform
 
